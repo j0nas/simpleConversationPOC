@@ -8,8 +8,8 @@ namespace Assets.scripts
         public bool Done { get; private set; }
         public string Text { get; private set; }
 
-        private const float TextSpeedDelaySeconds = 0.05f;
-        private const float TextSpeedRandomnessVariance = 0.1f;
+        private const float TextSpeedDelaySeconds = 0.025f;
+        private const float TextSpeedRandomnessVariance = 0.15f;
 
         private readonly Random _random = new Random();
         private readonly string _textToAppend;

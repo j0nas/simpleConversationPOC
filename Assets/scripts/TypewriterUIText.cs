@@ -7,9 +7,12 @@ public class TypewriterUIText : MonoBehaviour
     public Text DialogueText;
     public TextAsset ConversationXml;
 
+    private const int MaxCharsPerLine = 30;
+
     private TypewriterEffectTextAppender _textAppender;
     private DialogueLine[] _lines;
     private int _currentLineIndex;
+    private StringPartitioner _partitioner;
 
     void Start()
     {
@@ -21,12 +24,16 @@ public class TypewriterUIText : MonoBehaviour
             return;
         }
 
+        _partitioner = new StringPartitioner(MaxCharsPerLine);
+
         Click();
     }
 
     public void Click()
     {
         var dialogueLine = _lines[_currentLineIndex].Name + ": " + _lines[_currentLineIndex].Text;
+        dialogueLine = _partitioner.PartitionWithLineBreaks(dialogueLine);
+
         _textAppender = new TypewriterEffectTextAppender(dialogueLine, Time.time);
         _currentLineIndex++;
     }
