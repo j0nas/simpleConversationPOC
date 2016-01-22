@@ -1,0 +1,6 @@
+<DialogueCollection>
+  <DialogueLines>
+    <Line name="Jonas">Loaded text from the XML file. Press the button.</Line>
+    <Line name="Jonas">This proof of concept seems to be working. Yay!</Line>
+  </DialogueLines>
+</DialogueCollection>
