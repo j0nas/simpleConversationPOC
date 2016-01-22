@@ -27,7 +27,7 @@ namespace Assets.scripts
 
         public bool CanUpdateText(float time)
         {
-            return !Done && time - _lastAppendTimeStamp > (TextSpeedDelaySeconds + _currentVariance);
+            return !Done && time - _lastAppendTimeStamp > TextSpeedDelaySeconds + _currentVariance;
         }
 
         public bool UpdateTextIfAble(float time)

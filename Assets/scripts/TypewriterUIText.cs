@@ -18,7 +18,7 @@ public class TypewriterUIText : MonoBehaviour
     {
         var dialogueCollection = DialogueLoader.LoadFromText(ConversationXml.text);
         _lines = dialogueCollection.DialogueLines;
-        if (_lines[0].Text.Length == 0)
+        if (string.IsNullOrEmpty(_lines[0].Text))
         {
             Debug.Log("Failed to load dialogues!");
             return;
@@ -31,6 +31,7 @@ public class TypewriterUIText : MonoBehaviour
 
     public void Click()
     {
+        if (_currentLineIndex >= _lines.Length) return;
         var dialogueLine = _lines[_currentLineIndex].Name + ": " + _lines[_currentLineIndex].Text;
         dialogueLine = _partitioner.PartitionWithLineBreaks(dialogueLine);
 
